@@ -1,5 +1,7 @@
 # Chapter 6 Interprocess Communication
-##Introducing IPC(Inter-Process Communication)
+
+## Introducing IPC(Inter-Process Communication)
+
 ### Types Concurrency
 * **Pseudo-concurrency** where several processes/threads share a single CPU
 * **Physical concurrency** where several processes execute in parallel on several CPUs/cores
