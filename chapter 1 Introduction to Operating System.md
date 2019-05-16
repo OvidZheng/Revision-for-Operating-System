@@ -1,5 +1,10 @@
 # chapter 1 Introduction to Operating System
 
+## 思考问题
+1. What is an operating system?
+2. What is the kernel?
+3. How does the kernel work?
+
 ## 1 What is an Operating System?
 ### A working computer consists of
 * Hardware
@@ -120,8 +125,8 @@
 
 
 ## 3 What is Kernel
-* Just another computer program!
-* Run automatically when the system is booted
+* Just another **computer program**
+* Run **automatically** when the system is booted
 * Normally terminates when you “shut down” the computer
 
 ### Typical Function of an OS Kernel
@@ -156,5 +161,35 @@
     * I/O requires memory management (what data to read/write)
     * Memory management needs I/O (swapping)
 
+#### MiroKernel
+* A bug in the OS kernel can instantly kill the system
+    * The larger the kernel the more likely this is
+* kernel contains minimum functionality
+    * Memory management
+    * process switching and scheduling
+    * Local interprocess communication
+* Remaining functionality is moved to “servers”
+    * User mode processes with privileged access to the kernel (to modify kernel data)
+* easier to port between hardware platforms
+    * Most work is done porting the (small) kernel
+
+#### Hypervisor/Virtualization OS
+* Operating system itself is tiny
+    * Only adequate services to provide virtual hardware
+* Services to the user are provided by “normal” operating systems running in virtual hardware
+    * Can run Windows, Linux, MacOS, etc. in parallel
+* Hugely advantageous in the world of systems administration and service provision
+    * Can combine many physical servers into one larger server
+    * Computing power can be directed to where it’s needed dynamically
+
+
+### How Does Kernel Work?
+* Start by considering the boot process:
+    * Hardware powers up and completes POST(Power On Self Test)
+* Microcode in ROM/BIOS performs “bootstrap”
+    * First-stage boot loader searches devices for second-stage boot loader, e.g., PC checks floppy, optical disk, hard disk in some order
+    * Second stage boot loader loads and “runs” the OS kernel
+    * Operating system undertakes initialization then starts one or more standard services to allow the user to interact with the system
+    * e.g., a Graphical User Interface (GUI), which is usually a separate program!
 
 
